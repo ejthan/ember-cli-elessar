@@ -1,6 +1,6 @@
 # Ember-cli-elessar
 
-This README outlines the details of collaborating on this Ember addon.
+`ember-cli-slick` is a component that wraps the Elessar plugin functionality.
 
 ## Installation
 

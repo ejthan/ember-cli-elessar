@@ -11,12 +11,12 @@ export default Ember.Controller.extend({
 
   timeValues: [
     [
-      moment().startOf('day').format('LLLL'),
-      moment().startOf('day').add(1, 'hours').format('LLLL'),
+      moment().startOf('day').add(6, 'hours').format('LLLL'),
+      moment().startOf('day').add(13, 'hours').format('LLLL'),
     ],
     [
-      moment().startOf('day').add(1.5, 'hours').format('LLLL'),
-      moment().startOf('day').add(3.5, 'hours').format('LLLL'),
+      moment().startOf('day').add(15.5, 'hours').format('LLLL'),
+      moment().startOf('day').add(19.5, 'hours').format('LLLL'),
     ],
   ],
 
