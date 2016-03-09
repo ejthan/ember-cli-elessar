@@ -1,0 +1,21 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100);
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 100 !important;
+}
+
+.container {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.elessar-range {
+  height: 100%;
+  text-align: center;
+  color: white;
+}

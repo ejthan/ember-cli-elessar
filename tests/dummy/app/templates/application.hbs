@@ -1,3 +1,42 @@
-<h2 id="title">Welcome to Ember</h2>
+<div class="container">
+  <h1>Welcome to ember-cli-elessar</h1>
 
-{{outlet}}
+  {{elessar-range
+    values=values
+    snap=1
+    onChange=(action "onChangeCtrl")
+    onChanging=(action "onChangingCtrl")
+    rangeClass="dummy-range"
+    barClass="dummy-bar"
+  }}
+
+  <h2>Possible solution for model binding</h2>
+
+  {{elessar-range
+    values=model
+    bindModel=true
+    snap=1
+    onChange=(action "onChangeCtrl")
+    onChanging=(action "onChangingCtrl")
+    rangeClass="dummy-range"
+    barClass="dummy-bar"
+  }}
+
+  <h2>With moment.js</h2>
+  {{elessar-range
+    values=timeValues
+    bindModel=false
+    snap=1
+    onChange=(action "onChangeCtrl")
+    onChanging=(action "onChangingCtrl")
+    rangeClass="dummy-range"
+    barClass="dummy-bar"
+    valueParse=valueParse
+    valueFormat=valueFormat
+    label=label
+    snap=snap
+    minSize=minSize
+    min=minCtrl
+    max=maxCtrl
+  }}
+</div>
