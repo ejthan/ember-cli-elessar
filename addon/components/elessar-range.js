@@ -42,6 +42,9 @@ export default Ember.Component.extend({
     this._super(...arguments);
     var _this = this;
     if (_this.get('bindModel')) {
+      _this.rangeBar.ranges.forEach((item) => {
+        _this.rangeBar.removeRange(item.$el.index());
+      });
       _this.addRangeModel();
     } else {
       _this.rangeBar.val(_this.get('values'));
@@ -50,7 +53,7 @@ export default Ember.Component.extend({
 
   addRangeModel() {
     var _this = this;
-    return _this.get('values').forEach(function(item) {
+    _this.get('values').forEach(function(item) {
       _this.rangeBar.addRange(item.get('range').map(_this.rangeBar.abnormalise, _this.rangeBar), { model: item });
     });
   },
@@ -85,12 +88,23 @@ export default Ember.Component.extend({
       _this.addRangeModel();
     }
 
+    let timeout = null;
+
     this.$().prepend(_this.rangeBar.$el)
-    .on('change', (values, range) => {
-      _this.get('onChange')(values, range, _this.rangeBar);
+    .on('change', function(values, range) {
+      // workaround for a known bug where many events are triggered when just one should be
+      // https://github.com/quarterto/Elessar/issues/99
+      clearTimeout(timeout);
+      timeout = setTimeout(function() {
+        if (_this.get('onChange')) {
+          _this.get('onChange')(values, range, _this.rangeBar);
+        }
+      }, 10);
     })
     .on('changing', (values, range) => {
-      _this.get('onChanging')(values, range, _this.rangeBar);
+      if (_this.get('onChanging')) {
+        _this.get('onChanging')(values, range, _this.rangeBar);
+      }
     });
   },
 

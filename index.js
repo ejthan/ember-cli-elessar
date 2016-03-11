@@ -9,4 +9,5 @@ module.exports = {
     this.app.import(app.bowerDirectory + '/elessar/elessar.css');
     this.app.import(app.bowerDirectory + '/elessar/dist/elessar.js');
   },
+
 };

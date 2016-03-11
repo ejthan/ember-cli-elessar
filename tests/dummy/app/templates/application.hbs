@@ -1,14 +1,12 @@
 <div class="container">
   <h1>Welcome to ember-cli-elessar</h1>
 
-  {{elessar-range
+  {{!-- {{elessar-range
     values=values
     snap=1
-    onChange=(action "onChangeCtrl")
-    onChanging=(action "onChangingCtrl")
     rangeClass="dummy-range"
     barClass="dummy-bar"
-  }}
+  }} --}}
 
   <h2>Possible solution for model binding</h2>
 
@@ -22,13 +20,20 @@
     barClass="dummy-bar"
   }}
 
+  {{#each model as |range|}}
+    <div class="model-range">
+      <p>
+        <span class="range-id">{{range.id}}</span>  - {{range.range}}
+      </p>
+    </div>
+  {{/each}}
+
   <h2>With moment.js</h2>
-  {{elessar-range
+
+  {{!-- {{elessar-range
     values=timeValues
     bindModel=false
     snap=1
-    onChange=(action "onChangeCtrl")
-    onChanging=(action "onChangingCtrl")
     rangeClass="dummy-range"
     barClass="dummy-bar"
     valueParse=valueParse
@@ -38,5 +43,5 @@
     minSize=minSize
     min=minCtrl
     max=maxCtrl
-  }}
+  }} --}}
 </div>

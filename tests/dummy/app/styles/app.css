@@ -18,4 +18,9 @@ h1, h2, h3, h4 {
   height: 100%;
   text-align: center;
   color: white;
+  background: #3498db;
+}
+
+.elessar-handle {
+  background: #2980b9;
 }

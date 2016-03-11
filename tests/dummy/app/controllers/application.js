@@ -1,4 +1,4 @@
-/* Global moment */
+/* global moment */
 
 import Ember from 'ember';
 
@@ -33,18 +33,24 @@ export default Ember.Controller.extend({
   },
 
   actions: {
-    onChangeCtrl(values, range, bar) {
-      console.log('onChangeCtrl');
-      console.log(values);
-      console.log(range);
-      console.log(bar);
+    onChangeCtrl(values, ranges, rangeBar) {
+      var _this = this;
+      rangeBar.ranges.forEach((range) => {
+        var newRange = range.range.map(range.perant.normalise, range.perant);
+        if (range.$data.model) {
+          range.$data.model.set('range', newRange);
+        } else {
+          let newModel = Ember.Object.create({ id: 3, range: newRange });
+          _this.get('model').pushObject(newModel);
+          range.$data.model = newModel;
+        }
+      });
     },
 
-    onChangingCtrl(values, range, bar) {
-      console.log('onChangingCtrl');
-      console.log(values);
-      console.log(range);
-      console.log(bar);
+    onChangingCtrl(values, ranges) {
+      // console.log('onChangingCtrl');
+      // console.log(values);
+      // console.log(ranges);
     },
 
   },
