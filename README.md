@@ -4,12 +4,13 @@
 
 This is a wrapper for the elessar slider plugin to work with Ember CLI.
 
+### Installation
 
-## Installation
+From inside your ember-cli project, run the following:
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+```bash
+ember install ember-cli-elessar
+```
 
 ## Usage
 
@@ -87,6 +88,12 @@ To attach the model to newly created ranges => check this example
       });
     },
 ```
+
+## Installation
+
+* `git clone` this repository
+* `npm install`
+* `bower install`
 
 ## Running
 
