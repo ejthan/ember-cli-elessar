@@ -48,9 +48,9 @@ export default Ember.Controller.extend({
     },
 
     onChangingCtrl(values, ranges) {
-      // console.log('onChangingCtrl');
-      // console.log(values);
-      // console.log(ranges);
+      console.log('onChangingCtrl');
+      console.log(values);
+      console.log(ranges);
     },
 
   },
