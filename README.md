@@ -2,7 +2,9 @@
 
 [Demo](http://ejthan.github.io/ember-cli-elessar/)
 
-This is a wrapper for the elessar slider plugin to work with Ember CLI.
+This is a wrapper for the [elessar](https://github.com/quarterto/Elessar) slider plugin to work with Ember CLI.
+
+[![Build Status](https://travis-ci.org/ejthan/ember-cli-elessar.svg)](https://travis-ci.org/ejthan/ember-cli-elessar)
 
 ### Installation
 
@@ -71,6 +73,7 @@ ember install ember-cli-elessar
 ### Example with binding
 
 If the option bindModel is set to true the ranges will be created with the model attached
+The model needs an attribute "range" which shows the range as array `[10, 20]`
 
 To attach the model to newly created ranges => check this example
 ```javascript
