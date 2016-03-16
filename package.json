@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-elessar",
   "version": "0.0.2",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "This is a wrapper for the elessar slider plugin to work with Ember CLI.",
   "directories": {
     "doc": "doc",
     "test": "tests"
