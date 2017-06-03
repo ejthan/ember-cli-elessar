@@ -38,7 +38,7 @@ export default Ember.Component.extend({
   rangeClass: null,             // special css selector for range
   bindModel: false,             // bind model to range, special way to add ranges (manual)
 
-  didUpdate() {
+  didUpdateAttrs() {
     this._super(...arguments);
     var _this = this;
     if (_this.get('bindModel')) {
