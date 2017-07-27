@@ -59,6 +59,14 @@ export default Ember.Component.extend({
   },
 
   didInsertElement() {
+    this.elessarSetup();
+  },
+
+  willDestroyElement() {
+    this.rangeBar.remove();
+  },
+
+  elessarSetup() {
     var _this = this;
     this.rangeBar = new RangeBar({
       values: _this.get('bindModel') ? [] : _this.get('values'),
@@ -106,10 +114,6 @@ export default Ember.Component.extend({
         _this.get('onChanging')(values, range, _this.rangeBar);
       }
     });
-  },
-
-  willDestroyElement() {
-    this.rangeBar.remove();
-  },
+  }
 
 });
