@@ -4,7 +4,7 @@ module.exports = {
   name: require('./package').name,
 
   included: function(app) {
-    this._super.included(app);
+    this._super.included.apply(this, arguments);
     this.app.import('node_modules/elessar/elessar.css');
   },
 
