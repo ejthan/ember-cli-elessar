@@ -55,9 +55,10 @@ export default Controller.extend({
       });
     },
 
+    /*
     onChangingCtrl(values, ranges) {
-      /* do something */
-    },
 
+    },
+    */
   },
 });
