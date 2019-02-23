@@ -29,7 +29,7 @@ export default Controller.extend({
   timeValues: null,
 
   valueParse: function(date) {
-    return moment(date).valueOf();
+    return moment(date, 'LLLL').valueOf();
   },
 
   valueFormat: function(ts) {
@@ -37,7 +37,7 @@ export default Controller.extend({
   },
 
   label: function(a) {
-    return moment(a[1]).from(a[0], true);
+    return moment(a[1], 'LLLL').from(moment(a[0], 'LLLL'), true);
   },
 
   actions: {
@@ -53,12 +53,6 @@ export default Controller.extend({
           range.$data.model = newModel;
         }
       });
-    },
-
-    /*
-    onChangingCtrl(values, ranges) {
-
-    },
-    */
+    }
   },
 });
