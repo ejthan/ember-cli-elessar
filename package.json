@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-elessar",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "This is a wrapper for the elessar slider plugin to work with Ember CLI.",
   "keywords": [
     "ember-addon"
