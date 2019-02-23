@@ -1,8 +1,19 @@
-/* global RangeBar, moment */
-import Ember from 'ember';
+import Component from '@ember/component';
+import RangeBar from 'elessar';
+import $ from 'jquery';
+export default Component.extend({
 
-export default Ember.Component.extend({
-  values: [],                   // array of value pairs; each pair is the min and max of the range it creates
+  init() {
+    this._super(...arguments);
+    
+    this.values = this.values || []; // array of value pairs; each pair is the min and max of the range it creates
+    this.bgMark = this.bgMark || {
+      count: 0,                   // number of value labels to write in the background of the bar
+      interval: Infinity,         // provide instead of count to specify the space between labels
+      label: '',
+    };
+  },
+
   readonly: false,              // whether this bar is read-only
   min: 0,                       // value at start of bar
   max: 100,                     // value at end of bar
@@ -17,11 +28,6 @@ export default Ember.Component.extend({
   snap: 0,                      // clamps range ends to multiples of this value (in bar units)
   minSize: 0,                   // smallest allowed range (in bar units)
   maxRanges: 3,                 // maximum number of ranges allowed on the bar
-  bgMarks: {
-    count: 0,                   // number of value labels to write in the background of the bar
-    interval: Infinity,         // provide instead of count to specify the space between labels
-    label: '',
-  },
 
   label: function(a) {        // string or function to write as the text of a label. functions are called with normalised values.
     return parseInt(a[0]) + ' - ' + parseInt(a[1]);
@@ -79,7 +85,7 @@ export default Ember.Component.extend({
       minSize: _this.get('minSize'),
       maxRanges: _this.get('maxRanges'),
 
-      //bgMarks: _this.get('bgMarks'),
+      bgMark: _this.get('bgMark'),
       label: _this.get('label'),
       indicator: _this.get('indicator'),
       allowDelete: _this.get('allowDelete'),
@@ -98,7 +104,7 @@ export default Ember.Component.extend({
 
     let timeout = null;
 
-    this.$().prepend(_this.rangeBar.$el)
+    $(this.element).prepend(_this.rangeBar.$el)
     .on('change', function(values, range) {
       // workaround for a known bug where many events are triggered when just one should be
       // https://github.com/quarterto/Elessar/issues/99

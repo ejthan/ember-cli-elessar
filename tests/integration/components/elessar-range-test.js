@@ -1,7 +1,9 @@
 /* global moment */
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import Ember from 'ember';
+import $ from 'jquery';
+import { A } from "@ember/array";
+import EmberObject from '@ember/object';
 
 moduleForComponent('elessar-range', 'Integration | Component | elessar range', {
   integration: true,
@@ -26,9 +28,9 @@ test('it renders with model', function(assert) {
   // Handle any actions with this.on('myAction', function(val) { ... });
   assert.expect(1);
 
-  let model = Ember.A([
-    Ember.Object.create({ id: 1, range: [10, 30] }),
-    Ember.Object.create({ id: 2, range: [50, 70] }),
+  let model = A([
+    EmberObject.create({ id: 1, range: [10, 30] }),
+    EmberObject.create({ id: 2, range: [50, 70] }),
   ]);
 
   this.set('model', model);

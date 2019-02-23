@@ -92,25 +92,29 @@ To attach the model to newly created ranges => check this example
     },
 ```
 
-## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+Compatibility
+------------------------------------------------------------------------------
 
-## Running
+* Ember.js v2.18 or above
+* Ember CLI v2.13 or above
 
-* `ember server`
-* Visit your app at http://localhost:4200.
 
-## Running Tests
+Installation
+------------------------------------------------------------------------------
 
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+```
+ember install my-addon
+```
 
-## Building
 
-* `ember build`
+Usage
+------------------------------------------------------------------------------
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+[Longer description of how to use the addon in apps.]
+
+
+License
+------------------------------------------------------------------------------
+
+This project is licensed under the [MIT License](LICENSE.md).

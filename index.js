@@ -1,18 +1,12 @@
-/* jshint node: true */
 'use strict';
 var path = require('path');
 
 module.exports = {
-  name: 'ember-cli-elessar',
-
-  blueprintsPath: function() {
-    return path.join(__dirname, 'blueprints');
-  },
+  name: require('./package').name,
 
   included: function(app) {
     this._super.included(app);
-    this.app.import(app.bowerDirectory + '/elessar/elessar.css');
-    this.app.import(app.bowerDirectory + '/elessar/dist/elessar.js');
+    this.app.import('node_modules/elessar/elessar.css');
   },
 
 };

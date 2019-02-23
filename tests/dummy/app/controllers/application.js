@@ -1,24 +1,32 @@
-/* global moment */
+import Controller from '@ember/controller';
+import EmberObject from '@ember/object';
+import moment from 'moment';
 
-import Ember from 'ember';
-
-export default Ember.Controller.extend({
-  values: [[20, 40], [75, 85]],
+export default Controller.extend({
+  values: null,
   snap: 1000 * 60 * 15,
   minSize: 1000 * 60 * 60,
   minCtrl: moment().startOf('day').format('LLLL'),
   maxCtrl: moment().endOf('day').format('LLLL'),
 
-  timeValues: [
-    [
-      moment().startOf('day').add(6, 'hours').format('LLLL'),
-      moment().startOf('day').add(13, 'hours').format('LLLL'),
-    ],
-    [
-      moment().startOf('day').add(15.5, 'hours').format('LLLL'),
-      moment().startOf('day').add(19.5, 'hours').format('LLLL'),
-    ],
-  ],
+  init() {
+    this._super(...arguments);
+    this.set('values', [[20, 40], [75, 85]]);
+    this.set('timeValues', [
+      [
+        moment().startOf('day').add(6, 'hours').format('LLLL'),
+        moment().startOf('day').add(13, 'hours').format('LLLL'),
+      ],
+      [
+        moment().startOf('day').add(15.5, 'hours').format('LLLL'),
+        moment().startOf('day').add(19.5, 'hours').format('LLLL'),
+      ],
+    ]);
+
+    //this.set('bgMark', { count: 8, label: 'test' })
+  },
+
+  timeValues: null,
 
   valueParse: function(date) {
     return moment(date).valueOf();
@@ -40,7 +48,7 @@ export default Ember.Controller.extend({
         if (range.$data.model) {
           range.$data.model.set('range', newRange);
         } else {
-          let newModel = Ember.Object.create({ id: 3, range: newRange });
+          let newModel = EmberObject.create({ id: 3, range: newRange });
           _this.get('model').pushObject(newModel);
           range.$data.model = newModel;
         }
@@ -48,9 +56,7 @@ export default Ember.Controller.extend({
     },
 
     onChangingCtrl(values, ranges) {
-      console.log('onChangingCtrl');
-      console.log(values);
-      console.log(ranges);
+      /* do something */
     },
 
   },

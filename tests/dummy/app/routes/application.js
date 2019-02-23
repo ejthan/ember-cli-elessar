@@ -1,6 +1,8 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
+import { A } from '@ember/array';
+import EmberObject from '@ember/object';
 
-export default Ember.Route.extend({
+export default Route.extend({
 
   // beforeModel() {
   //   this.store.createRecord('example', {
@@ -15,9 +17,9 @@ export default Ember.Route.extend({
 
   model() {
     //return this.store.peekAll('example').toArray();
-    return Ember.A([
-      Ember.Object.create({ id: 1, range: [10, 30] }),
-      Ember.Object.create({ id: 2, range: [50, 70] }),
+    return A([
+      EmberObject.create({ id: 1, range: [10, 30] }),
+      EmberObject.create({ id: 2, range: [50, 70] }),
     ]);
   },
 });
