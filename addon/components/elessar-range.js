@@ -104,7 +104,7 @@ export default Component.extend({
 
     let timeout = null;
 
-    $(this.element).prepend(_this.rangeBar.$el)
+    $(this.element).prepend(_this.rangeBar
     .on('change', function(values, range) {
       // workaround for a known bug where many events are triggered when just one should be
       // https://github.com/quarterto/Elessar/issues/99
@@ -119,7 +119,7 @@ export default Component.extend({
       if (_this.get('onChanging')) {
         _this.get('onChanging')(values, range, _this.rangeBar);
       }
-    });
+    }).$el);
   }
 
 });
