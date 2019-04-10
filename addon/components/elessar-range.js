@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import RangeBar from 'elessar';
+import HeroMultirangeslider from 'hero-multirangeslider';
 import $ from 'jquery';
 export default Component.extend({
 
@@ -74,7 +74,7 @@ export default Component.extend({
 
   elessarSetup() {
     var _this = this;
-    this.rangeBar = new RangeBar({
+    this.rangeBar = new HeroMultirangeslider({
       values: _this.get('bindModel') ? [] : _this.get('values'),
       readonly: _this.get('readonly'),
       min: _this.get('min'),

@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-elessar",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "This is a wrapper for the elessar slider plugin to work with Ember CLI.",
   "keywords": [
     "ember-addon"
@@ -21,9 +21,9 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
-    "elessar": "^1.8.5",
+    "ember-auto-import": "^1.2.21",
     "ember-cli-babel": "^7.1.2",
-    "ember-auto-import": "^1.2.21"
+    "hero-multirangeslider": "git+https://github.com/ejthan/hero-multirangeslider.git"
   },
   "devDependencies": {
     "@ember/jquery": "^0.6.0",

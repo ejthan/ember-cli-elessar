@@ -5,7 +5,7 @@ module.exports = {
 
   included: function(app) {
     this._super.included.apply(this, arguments);
-    this.app.import('node_modules/elessar/elessar.css');
+    this.app.import('node_modules/hero-multirangeslider/dist/hero-multirangeslider.css');
   },
 
 };
