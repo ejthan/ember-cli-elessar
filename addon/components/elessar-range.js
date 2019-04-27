@@ -44,19 +44,6 @@ export default Component.extend({
   rangeClass: null,             // special css selector for range
   bindModel: false,             // bind model to range, special way to add ranges (manual)
 
-  didUpdateAttrs() {
-    this._super(...arguments);
-    var _this = this;
-    if (_this.get('bindModel')) {
-      _this.rangeBar.ranges.forEach((item) => {
-        _this.rangeBar.removeRange(item.$el.index());
-      });
-      _this.addRangeModel();
-    } else {
-      _this.rangeBar.val(_this.get('values'));
-    }
-  },
-
   addRangeModel() {
     var _this = this;
     _this.get('values').forEach(function(item) {
@@ -66,6 +53,10 @@ export default Component.extend({
 
   didInsertElement() {
     this.elessarSetup();
+
+    if (this.bindModel) {
+      this.addRangeModel();
+    }
   },
 
   willDestroyElement() {
@@ -97,10 +88,6 @@ export default Component.extend({
       barClass: _this.get('barClass'),
       rangeClass: _this.get('rangeClass'),
     });
-
-    if (_this.get('bindModel')) {
-      _this.addRangeModel();
-    }
 
     let timeout = null;
 
