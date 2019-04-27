@@ -60,7 +60,7 @@ export default Component.extend({
   addRangeModel() {
     var _this = this;
     _this.get('values').forEach(function(item) {
-      _this.rangeBar.addRange(item.get('range').map(_this.rangeBar.abnormalise, _this.rangeBar), { model: item });
+      _this.rangeBar.addRange(item.get('range').map(_this.rangeBar.abnormalise, _this.rangeBar), { model: item }, item.get('id'));
     });
   },
 
