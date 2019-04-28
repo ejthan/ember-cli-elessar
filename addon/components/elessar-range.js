@@ -51,12 +51,18 @@ export default Component.extend({
     });
   },
 
-  didInsertElement() {
-    this.elessarSetup();
-
+  didUpdateAttrs() {
+    this._super(...arguments);
     if (this.bindModel) {
+      this.rangeBar.ranges.forEach((item) => {
+        this.rangeBar.removeRange(item.$el.index());
+      });
       this.addRangeModel();
     }
+  },
+
+  didInsertElement() {
+    this.elessarSetup();
   },
 
   willDestroyElement() {
